@@ -1,0 +1,47 @@
+{
+  "name": "litl",
+  "version": "1.0.0",
+  "description": "Utility application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node build/app.js",
+    "dev-start": "nodemon src/app.js --exec babel-node --presets env",
+    "build": "babel src --out-dir build",
+    "dev": "concurrently \"npm run dev-start\" \"npm start --prefix client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommy-tran/litl.git"
+  },
+  "author": "Tommy Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommy-tran/litl/issues"
+  },
+  "homepage": "https://github.com/tommy-tran/litl#readme",
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt": "^2.0.1",
+    "connect-redis": "^3.3.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "generate-password": "^1.4.0",
+    "jest": "^23.1.0",
+    "joi": "^13.4.0",
+    "joi-password-complexity": "^2.0.1",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.1.6",
+    "passport": "^0.4.0",
+    "passport-github2": "^0.1.11",
+    "passport-google-oauth2": "^0.1.6"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.17.5"
+  }
+}
